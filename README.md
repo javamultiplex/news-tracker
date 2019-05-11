@@ -1,4 +1,4 @@
-# news-tracker
+# News Tracker
 Get news using https://newsapi.org/
 
 
@@ -8,6 +8,6 @@ Get news using https://newsapi.org/
 - Eclipse/IntelliJ IDEA
 
 # Functionaliy
-- Get news urls based on keywords entered by user and write to file.
-- Get news urls based on keywords and date entered by user and write to file.
+- Get news urls based on keyword entered by user and write to file.
+- Get news urls based on keyword and date entered by user and write to file.
 - Get news urls based on keywords present in file and write to another file.
