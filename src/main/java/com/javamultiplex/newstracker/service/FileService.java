@@ -37,7 +37,7 @@ public class FileService {
      * @throws IOException
      */
     public void writeNewsUrlsToFileWithKeyword(final News news, final String keyword) throws IOException {
-        List<String[]> articlesList = getArticlesList(news);
+        List<String[]> articlesList = getArticlesList(news,keyword);
         Path path = Paths.get("news.csv");
         FileWriter fileWriter = new FileWriter(path.toFile(), true);
         CSVWriter csvWriter = new CSVWriter(fileWriter, ',',
@@ -68,6 +68,15 @@ public class FileService {
         articlesList.add(new String[]{"TITLE", "AUTHOR", "DATE", "DESCRIPTION", "CONTENT", "URL"});
         news.getArticles().forEach(a -> {
             articlesList.add(new String[]{"'" + a.getTitle() + "'", "'" + a.getAuthor() + "'", "'" + a.getPublishedAt() + "'", "'" + a.getDescription() + "'", "'" + a.getContent() + "'", "'" + a.getUrl() + "'"});
+        });
+        return articlesList;
+    }
+
+    private List<String[]> getArticlesList(News news, String keyword) {
+        List<String[]> articlesList = new ArrayList<>();
+        articlesList.add(new String[]{"KEYWORD","TITLE", "AUTHOR", "DATE", "DESCRIPTION", "CONTENT", "URL"});
+        news.getArticles().forEach(a -> {
+            articlesList.add(new String[]{keyword,"'" + a.getTitle() + "'", "'" + a.getAuthor() + "'", "'" + a.getPublishedAt() + "'", "'" + a.getDescription() + "'", "'" + a.getContent() + "'", "'" + a.getUrl() + "'"});
         });
         return articlesList;
     }
