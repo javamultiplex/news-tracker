@@ -15,7 +15,7 @@ public class NewstrackerApplication {
         ConfigurableApplicationContext run = SpringApplication.run(NewstrackerApplication.class, args);
         System.out.println("******************************** NEWS TRACKER ***********************************");
         System.out.println("1. Get news urls based on keywords.");
-        System.out.println("2. Get news urls based on keywords and date.");
+        System.out.println("2. Get news urls based on keywords and date/time.");
         System.out.println("3. Get news urls based on keywords present in keywords.txt file");
         System.out.println("Enter your option to continue : ");
         Scanner input = new Scanner(System.in);
@@ -23,9 +23,9 @@ public class NewstrackerApplication {
         CommandInvoker bean = run.getBean(CommandInvoker.class);
         try {
             bean.invokeCommand(option);
-            System.out.println("News urls are successfully written to news.txt file.");
+            System.out.println("News urls are successfully written to news.csv file.");
         } catch (IOException e) {
-            System.out.println("Exception occurred while writing new urls to news.txt file.");
+            System.out.println("Exception occurred while writing new urls to news.csv file.");
             e.printStackTrace();
         }
     }

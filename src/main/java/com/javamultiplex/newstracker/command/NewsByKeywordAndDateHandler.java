@@ -27,9 +27,9 @@ public class NewsByKeywordAndDateHandler implements NewsHandler {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter keyword.");
         String keyword = input.next();
-        System.out.println("Enter fromDate in yyyy-MM-dd format :");
+        System.out.println("Enter fromDate in yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss format :");
         String fromDate = input.next();
-        System.out.println("Enter ToDate in yyyy-MM-dd format :");
+        System.out.println("Enter ToDate in yyyy-MM-dd or yyyy-MM-ddTHH:mm:ss format :");
         String toDate = input.next();
         News newsByKeywordAndDate = newsApiService.getNewsByKeywordAndDate(keyword, fromDate, toDate);
         fileService.writeNewsUrlsToFile(newsByKeywordAndDate);
